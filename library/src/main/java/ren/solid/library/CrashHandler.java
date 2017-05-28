@@ -10,6 +10,8 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.umeng.analytics.MobclickAgent;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -176,7 +178,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        MobclickAgent.reportError(getInstance().mContext,sb.toString());
         cleanLogFileToN(CrashFilePath);
 
         Log.d(TAG, "saveCrashInfo2File: " + sb.toString());

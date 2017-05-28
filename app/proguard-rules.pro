@@ -26,6 +26,10 @@
           boolean isEnable();
   }
 
+  -keepclassmembers class * {
+     public <init> (org.json.JSONObject);
+  }
+
 #如果有引用v4包可以添加下面这行
 #-keep public class * extends android.support.v4.app.Fragment
 #-keep public class * extends android.support.v7.app.Fragment

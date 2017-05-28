@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-
-
+import com.umeng.analytics.MobclickAgent;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -49,6 +48,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
 
 }

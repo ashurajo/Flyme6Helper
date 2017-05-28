@@ -10,6 +10,7 @@ import android.os.Looper;
 import android.widget.Toast;
 
 import com.coderstory.FTool.R;
+import com.umeng.analytics.MobclickAgent;
 
 public class SplashActivity extends Activity {
 
@@ -21,8 +22,12 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
         mContext = this;
 
+        //初始化友盟统计插件
+        MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType. E_UM_NORMAL);
+        MobclickAgent.setCatchUncaughtExceptions(false);
+
         //倒计时返回主界面
-        new AsyncTask<Void, Void, Integer>() {
+         new  AsyncTask<Void, Void, Integer>() {
             @Override
             protected void onPostExecute(Integer result) {
 
